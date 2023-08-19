@@ -1,5 +1,6 @@
 {% include 'admin/header.html' %}
 
+
 <br>
 <div class="container">
     <div class="row">
@@ -15,7 +16,7 @@
                     Datos de la categoria
                 </div>
                 <div class="card-body">
-                    <form action="/admin/categ/agregar" method="post">
+                    <form action="/admin/categorias/agregar" method="post">
                         <div class="mb-3">
                           <label for="txtCategorias" class="form-label">Nombre:</label>
                           <input type="text"
@@ -38,6 +39,7 @@
                             <th scope="col">Nombre</th>
                             <th scope="col">Fecha de registro</th>
                             <th scope="col">usuario que lo ingreso</th>
+                            <th scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,10 +49,11 @@
                             <td>{{ resul[1] }}</td>
                             <td>{{ resul[2] }}</td>
                             <td>{{ resul[3] }}</td>
+                            <td><a class="btn btn-danger" href="/admin/categorias_desactivar/{{resul[0]}}">Desactivar</a></td>
                             <td>
-                                <form action="" method="post">
+                                <form action="/admin/eliminarCategorias/{{resul[0]}}" method="post">
 
-                                    <input type="hidden" name="txtID" id="txtID" value="{{resul[0]}}">
+                                    <input type="hidden" name="txtID" id="txtID" value="/admin/eliminarCategorias/{{resul[0]}}">
                                     <button type="submit" class="btn btn-danger">Eliminar</button>
 
                                 </form>
